@@ -8,7 +8,8 @@ from sentence_transformers import SentenceTransformer
 
 # Configure Flask App
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
+# Allow CORS only for the frontend origin
+CORS(app, origins=["http://localhost:3000"], supports_credentials=True)
 
 # Configure Logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
